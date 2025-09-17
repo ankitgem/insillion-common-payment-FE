@@ -72,9 +72,9 @@ align-self: stretch;
 
 .option {
   display: flex;
-width: 392px;
+width: 320px;
 height: 75px;
-padding: 20px 24px;
+padding: 16px 20px;
 align-items: center;
 gap: 16px;
 
@@ -87,9 +87,9 @@ background: #FFF;
 }
 .option.selected {
  display: flex;
-width: 392px;
+width: 320px;
 height: 75px;
-padding: 16px 24px;
+padding: 16px 20px;
 align-items: center;
 gap: 16px;
 border-radius: 8px;
@@ -175,9 +175,9 @@ margin-top: 70px;
 .footer {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  left: 52%;
   transform: translateX(-50%);
-  width: 99%;
+  width: 94%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

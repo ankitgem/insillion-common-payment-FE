@@ -18,7 +18,7 @@
             {{ field.label }}
           </label>
 
-         <ng-container [ngSwitch]="field.type">
+          <ng-container [ngSwitch]="field.type">
 
   <!-- Select dropdown -->
   <ng-select *ngSwitchCase="'select'" [items]="field.options ?? []" bindLabel="." bindValue="."
@@ -26,24 +26,13 @@
     class="custom-width" [searchable]="false" [clearable]="false">
   </ng-select>
 
-  <!-- Datepicker input styled as your example -->
-  <div *ngSwitchCase="'datepicker'" class="mb-3" >
-  <input 
-  type="text" 
-  class="form-control" 
-  placeholder="Select a date" 
-  bsDatepicker />
-</div>
-
   <!-- Text or other inputs -->
   <div *ngSwitchDefault class="input-icon-container">
     <span class="rupee-icon">₹</span>
     <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.label"
       class="input-class" />
   </div>
-
 </ng-container>
-
 
         </div>
       </div>

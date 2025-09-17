@@ -58,6 +58,11 @@
             "key": "insillionReceipt",
             "value": "Insillion Receipt",
             "icon": "assets/icons/insillionReceipt.svg"
+          },
+          {
+            "key": "razorPay",
+            "value": "Razor Pay",
+            "icon": "assets/icons/link.svg"
           }
         ]
       },
@@ -494,7 +499,7 @@
     {
   "label": "Bank Guarantee Date",
   "key": "bankGuaranteeDate",
-  "type": "datepicker",  
+  "type": "text",  
   "placement": "top",
   "required": true
 },
