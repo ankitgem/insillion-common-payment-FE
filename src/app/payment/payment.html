@@ -38,7 +38,7 @@
       (click)="selectPayment(option.key)"
     >
       <span class="icon me-2">
-        <img [src]="option.icon" alt="{{ option.value }}" width="40" height="40" />
+        <img [src]="apiService.COMMON_ASSETS_PATH + option.icon" alt="{{ option.value }}" width="40" height="40" />
       </span>
       <div>
         <div class="text-h3-semibold pb-md mt-xxl mb-xl">

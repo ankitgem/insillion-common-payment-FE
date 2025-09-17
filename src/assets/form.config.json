@@ -22,42 +22,42 @@
           {
             "key": "cdPayment",
             "value": "CD Payment (Cash Deposit)",
-            "icon": "../../assets/icons/cdIcon.svg"
+            "icon": "assets/icons/cdIcon.svg"
           },
           {
             "key": "sendLink",
             "value": "Send Link to Customer",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "assets/icons/link.svg"
           },
           {
             "key": "cash",
             "value": "Cash",
-            "icon": "../../assets/icons/cashIcon.svg"
+            "icon": "assets/icons/cashIcon.svg"
           },
           {
             "key": "cheque",
             "value": "Cheque",
-            "icon": "../../assets/icons/chequeIcon.svg"
+            "icon": "assets/icons/chequeIcon.svg"
           },
           {
             "key": "bankDebt",
             "value": "Bank DEBT",
-            "icon": "../../assets/icons/bankDebt.svg"
+            "icon": "assets/icons/bankDebt.svg"
           },
           {
             "key": "existing",
             "value": "Existing",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "assets/icons/link.svg"
           },
           {
             "key": "bankGuarantee",
             "value": "Bank Guarantee",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "assets/icons/link.svg"
           },
           {
             "key": "insillionReceipt",
             "value": "Insillion Receipt",
-            "icon": "../../assets/icons/insillionReceipt.svg"
+            "icon": "assets/icons/insillionReceipt.svg"
           }
         ]
       },
@@ -241,16 +241,16 @@
         "value": "CERT-98234567"
       }
     ],
-    "icon": "../../assets/icons/errorIcon.svg",
-    "successIcon" : "../../assets/icons/successIcon.svg",
+    "icon": "assets/icons/errorIcon.svg",
+    "successIcon" : "assets/icons/successIcon.svg",
     "buttons": {
     "failed": [
-      { "label": "Repay", "action": "repay", "class": "btn btn-primary btn-md w-75 my-smd", "icon":"../assets/icons/cdIcon.svg" }
+      { "label": "Repay", "action": "repay", "class": "btn btn-primary btn-md w-75 my-smd", "icon":"assets/icons/cdIcon.svg" }
     ],
     "success": [
-      { "label": "Download", "action": "download", "class": "btn btn-primary btn-sm w-75", "icon":"../assets/icons/downloadIcon.svg" },
-      { "label": "Back To Policy", "action": "backToPolicy", "class": "btn btn-outline btn-sm", "icon":"../assets/icons/backToPolicyIcon.svg" },
-      { "label": "Share", "action": "share", "class": "btn btn-outline btn-sm", "icon":"../assets/icons/shareIcon.svg" }
+      { "label": "Download", "action": "download", "class": "btn btn-primary btn-sm w-75", "icon":"assets/icons/downloadIcon.svg" },
+      { "label": "Back To Policy", "action": "backToPolicy", "class": "btn btn-outline btn-sm", "icon":"assets/icons/backToPolicyIcon.svg" },
+      { "label": "Share", "action": "share", "class": "btn btn-outline btn-sm", "icon":"assets/icons/shareIcon.svg" }
     ]
   }
   },

@@ -56,7 +56,7 @@
         "deploy":{
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref":"/insillion-common-payment-fe/"
+            "baseHref":"/insillion-common-payment-FE/"
           }
         },
         "serve": {

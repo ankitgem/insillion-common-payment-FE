@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CdPayment } from '../cd-payment/cd-payment';
@@ -13,6 +13,7 @@ import { BankDebt } from '../bank-debt/bank-debt';
 import { Existing } from '../existing/existing';
 import { BankGuarantee } from '../bank-guarantee/bank-guarantee';
 import { InsillionReceipt } from '../insillion-receipt/insillion-receipt';
+import { ApiService } from '../services/api.service';
 
 
 interface FormField {
@@ -37,6 +38,7 @@ interface FormField {
   styleUrls: ['./payment.css'],
 })
 export class DynamicFormComponent implements OnInit {
+  readonly apiService = inject(ApiService);
   formConfig: { fields: FormField[] } = formConfig.dynamicPaymentForm;
   filteredButtons: FormField[] = [];
 
