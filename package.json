@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng deploy"
   },
   "prettier": {
     "printWidth": 100,
@@ -22,6 +23,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^20.3.0",
     "@angular/common": "^20.2.0",
     "@angular/compiler": "^20.2.0",
     "@angular/core": "^20.2.0",
@@ -29,8 +31,9 @@
     "@angular/platform-browser": "^20.2.0",
     "@angular/router": "^20.2.0",
     "@ng-select/ng-select": "^20.2.0",
+    "angular-cli-ghpages": "^2.0.3",
     "bootstrap": "^5.3.8",
-    "ngx-bootstrap": "^18.0.0",
+    "ngx-bootstrap": "^19.0.2",
     "ngx-toastr": "^19.1.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.23.0",

@@ -52,6 +52,12 @@
           },
           "defaultConfiguration": "production"
         },
+        "deploy":{
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref":"/insillion-common-payment-fe/"
+          }
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {

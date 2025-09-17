@@ -32,17 +32,17 @@
           {
             "key": "cash",
             "value": "Cash",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "../../assets/icons/cashIcon.svg"
           },
           {
             "key": "cheque",
             "value": "Cheque",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "../../assets/icons/chequeIcon.svg"
           },
           {
             "key": "bankDebt",
             "value": "Bank DEBT",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "../../assets/icons/bankDebt.svg"
           },
           {
             "key": "existing",
@@ -57,7 +57,7 @@
           {
             "key": "insillionReceipt",
             "value": "Insillion Receipt",
-            "icon": "../../assets/icons/link 1.svg"
+            "icon": "../../assets/icons/insillionReceipt.svg"
           }
         ]
       },
