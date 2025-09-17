@@ -1,0 +1,145 @@
+<div class="payment-main">
+
+  <!-- Breadcrumb -->
+  <nav class="text-sm mb-4" *ngIf="breadcrumbField && !showPaymentStatus">
+  <span *ngFor="let item of breadcrumbField.items; let i = index; let last = last">
+    <span [ngStyle]="{ color: i < 2 ? '#2c7be5' : 'inherit' }">
+      {{ item }}
+    </span>
+    <span 
+      *ngIf="!last" 
+      [ngStyle]="{ color: i < 1 ? '#2c7be5' : 'inherit' }">
+      &gt;
+    </span>
+  </span>
+</nav>
+
+
+
+  <!-- Title -->
+  <h2 class="text-md text-dark mb-4" *ngIf="titleField && !showPaymentStatus">
+    {{ titleField.text }}
+  </h2>
+
+  <!-- Payment method selection -->
+  <div class="d-flex flex-column align-items-start gap-3 mx-auto bg-white shadow"
+     style="padding-bottom: 1rem; border-radius: 1.5rem;" *ngIf="selectField && !showPaymentStatus">
+  <div class="card-header">
+    <div class="text-md text-dark font-medium">
+      {{ selectField.label }}
+    </div>
+  </div>
+  <div class="payment-options d-flex flex-wrap gap-3">
+    <button
+      type="button"
+      class="option d-flex align-items-center px-3 py-2"
+      *ngFor="let option of selectField.options"
+      [class.selected]="option.key === selectedPayment"
+      (click)="selectPayment(option.key)"
+    >
+      <span class="icon me-2">
+        <img [src]="option.icon" alt="{{ option.value }}" width="40" height="40" />
+      </span>
+      <div>
+        <div class="text-h3-semibold pb-md mt-xxl mb-xl">
+          {{ option.value }}
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+
+
+  <!-- Conditionally show child payment components -->
+  <div *ngIf="selectedPayment === 'cdPayment' && !showPaymentStatus">
+    <app-cd-payment></app-cd-payment>
+  </div>
+  <div *ngIf="selectedPayment === 'sendLink' && !showPaymentStatus">
+    <app-send-link-to-customer></app-send-link-to-customer>
+  </div>
+  <div *ngIf="selectedPayment === 'cash' && !showPaymentStatus">
+    <app-cash-payment></app-cash-payment>
+  </div>
+<div *ngIf="selectedPayment === 'cheque' && !showPaymentStatus">
+    <app-cheque-payment></app-cheque-payment>
+  </div>
+  <div *ngIf="selectedPayment === 'bankDebt' && !showPaymentStatus">
+    <app-bank-debt></app-bank-debt>
+  </div>
+  <div *ngIf="selectedPayment === 'existing' && !showPaymentStatus">
+    <app-existing></app-existing>
+  </div>
+  <div *ngIf="selectedPayment === 'bankGuarantee' && !showPaymentStatus">
+    <app-bank-guarantee></app-bank-guarantee>
+  </div>
+  <div *ngIf="selectedPayment === 'insillionReceipt' && !showPaymentStatus">
+    <app-insillion-receipt></app-insillion-receipt>
+  </div>
+  <!-- Checkboxes form -->
+  <form [formGroup]="form" novalidate *ngIf="!showPaymentStatus">
+    <div class="checkbox-group">
+      <label *ngFor="let field of checkboxFields" [attr.data-name]="field.name">
+        <ng-container *ngIf="field.name">
+          <input type="checkbox" [formControlName]="field.name"  class="text-base font-regular leading-base text-dark"/>
+          {{ field.label }}
+          <a *ngIf="field.link" [href]="field.link.href" class="text-primary text-decoration-underline">
+            {{ field.link.text }}
+          </a>
+        </ng-container>
+      </label>
+
+      <div
+        class="error"
+        *ngIf="
+          form.get('terms')?.invalid &&
+          (form.get('terms')?.touched || form.get('terms')?.dirty) &&
+          termsField
+        "
+      >
+        <small class="error-text">{{ termsField.errors?.['requiredTrue'] }}</small>
+      </div>
+    </div>
+  </form>
+
+  <!-- Payment Status Page shown after successful Make Payment -->
+  <app-payment-status-page *ngIf="showPaymentStatus"></app-payment-status-page>
+
+  <!-- Footer -->
+  <div class="footer" *ngIf="!showPaymentStatus">
+    <div class="footer" >
+  <div class="d-flex flex-wrap gap-3">
+  <button
+    *ngFor="let btn of filteredButtons"
+    class="btn btn-primary btn-md"
+    [disabled]="form.get('terms')?.invalid"
+    (click)="handleButtonClick(btn.name)"
+    type="button"
+    style="width: 230px;"
+  >
+    {{ btn.label }}
+  </button>
+</div>
+
+
+    <div class="summary summary-fixed-right d-flex align-items-center gap-4" *ngIf="summaryField">
+  <div class="d-flex flex-column" *ngIf="summaryField">
+    <span class="text-h3-semibold pb-md mt-xxl mb-xl">{{ summaryField.label }}</span>
+    <a
+  *ngIf="summaryField.breakupLink"
+  [href]="summaryField.breakupLink.href"
+  class="text-primary mt-1 small text-decoration-underline"
+>
+  {{ summaryField.breakupLink.text }}
+</a>
+  </div>
+      <div style="border-left: 3px solid #8CB8FF; height: 40px; margin: 0 1opx;"></div>
+  <hr class="border-primary mt-2 mb-3" />
+  <span class="text-h3-semibold pb-md mt-xxl mb-xl">
+    {{ summaryField.value }}
+  </span>
+</div>
+
+
+  </div>
+</div>

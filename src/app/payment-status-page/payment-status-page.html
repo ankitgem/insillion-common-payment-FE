@@ -1,0 +1,100 @@
+<div class="center-page min-vh-100 p-3">
+  <div
+    class=" d-flex flex-column justify-content-center align-items-center gap-1 pb-2 rounded-4 bg-white shadow w-50"
+    *ngIf="statusData"
+  >
+    <div
+      class="card-header text-md text-dark" *ngIf="statusData.status == 'failed'"
+    >
+      {{ statusData.reason }}
+    </div>
+    <div
+      class="card-header text-md text-dark" *ngIf="statusData.status == 'success'"
+    >
+      {{ statusData.successReason }}
+    </div>
+
+    <div class="status-icon my-xs" *ngIf="statusData.status == 'success'">
+      <img
+    [src]="statusData.successIcon"
+    alt="Status Icon"
+    width="60"
+    height="60"
+    class="flex-shrink-0"
+  />
+    </div>
+    <div class="status-icon my-xs" *ngIf="statusData.status === 'failed'">
+      <img
+    [src]="statusData.icon"
+    alt="Status Icon"
+    width="60"
+    height="60"
+    class="flex-shrink-0"
+  />
+    </div>
+
+    <div
+      class="text-base text-medium py-smd" *ngIf="statusData.status == 'failed'"
+    >
+      {{ statusData.failedMessage }}
+    </div>
+    <div
+      class="text-base text-medium py-smd" *ngIf="statusData.status == 'success'"
+    >
+      {{ statusData.successMessage }}
+    </div>
+
+    <div>
+      <div
+        *ngFor="let detail of statusData.details"
+        class="d-flex justify-content-between"
+        style="width: 400px;"
+      >
+        <span class="text-sm text-medium py-xs">{{ detail.label }}</span>
+        <span class="text-sm py-xs">{{ detail.value }}</span>
+      </div>
+    </div>
+
+    <ng-container *ngIf="buttonsForStatus.length > 0">
+  <!-- Show Download button separately if success -->
+  <button
+    *ngIf="statusData.status === 'success'"
+    class="{{ buttonsForStatus[0].class }}"
+    (click)="handleButtonClick(buttonsForStatus[0].action)"
+    type="button"
+  >
+  <img [src]="buttonsForStatus[0].icon" alt="" class="btn-icon" />
+    {{ buttonsForStatus[0].label }}
+  </button>
+
+  <!-- Show remaining buttons side by side -->
+  <div
+  *ngIf="statusData.status === 'success' && buttonsForStatus.length > 1"
+  class="d-flex"
+  style="width: 400px;"
+>
+  <button
+    *ngFor="let btn of buttonsForStatus.slice(1); let last = last"
+    class="btn btn-outline btn-sm my-sm flex-fill"
+    [class.me-3]="!last"
+    (click)="handleButtonClick(btn.action)"
+    type="button"
+  >
+    <img [src]="btn.icon" alt="" class="btn-icon" />
+    {{ btn.label }}
+  </button>
+</div>
+
+  <!-- For failed status show only repay button -->
+  <button
+    *ngIf="statusData.status === 'failed'"
+    class="{{ buttonsForStatus[0].class }}"
+    (click)="handleButtonClick(buttonsForStatus[0].action)"
+    type="button"
+  >
+    {{ buttonsForStatus[0].label }}
+  </button>
+</ng-container>
+
+  </div>
+</div>

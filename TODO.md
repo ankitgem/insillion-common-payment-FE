@@ -1,0 +1,1 @@
+- [ ] Update all icon paths in form.config.json from "../assets/icons/" to "../../assets/icons/"

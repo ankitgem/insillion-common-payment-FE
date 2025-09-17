@@ -1,0 +1,79 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- Payer Details section -->
+   <div class="d-flex flex-column align-items-start gap-3 mx-auto bg-white shadow"
+     style="padding-bottom: 1rem; border-radius: 1.5rem;">
+  <div class="payerDetails" (click)="showPaymentDetails = !showPaymentDetails" style="cursor: pointer;">
+    <h3 class="text-h3-semibold fs-5">Payer Details</h3>
+  </div>
+
+  <div class="section p-2" *ngIf="showPaymentDetails">
+    <div class="fields-container">
+      <div *ngFor="let field of config.paymentDetails" class="form-field text-p1-regular text-medium mb-xl fs-6"
+        [ngClass]="{ 'checkbox-field': field.type === 'checkbox' }">
+        <!-- Label for all but checkbox -->
+        <label *ngIf="field.type !== 'checkbox'" class="text-sm" [class.required]="field.required">
+          {{ field.label }}
+        </label>
+
+        <ng-container [ngSwitch]="field.type" class="input-wrapper">
+
+          <!-- ng-select for select dropdown -->
+          <ng-select *ngSwitchCase="'select'" [items]="field.options ?? []" bindLabel="." bindValue="."
+            [formControlName]="field.key" [placeholder]="field.placeholder ?? ('Select ' + field.label)"
+            class="custom-width text-xs" [searchable]="false" clearable="false">
+          </ng-select>
+
+          <!-- other inputs unchanged -->
+          <input *ngSwitchDefault [type]="field.type" [formControlName]="field.key" [placeholder]="field.label"
+            class="input-class" />
+
+          <label *ngSwitchCase="'checkbox'" class="checkbox-label">
+            <input type="checkbox" [formControlName]="field.key" />
+            {{ field.label }}
+            <span *ngIf="field.required">*</span>
+          </label>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  </div>
+ <span></span>
+  <!-- Customer Link section -->
+   <div class="d-flex flex-column align-items-start gap-3 mx-auto bg-white shadow"
+     style="padding-bottom: 1rem; border-radius: 1.5rem;" >
+  <div class="card-layout">
+    <div class="payerDetails" (click)="showCustomerLink = !showCustomerLink" style="cursor: pointer;">
+      <h3 class="text-h3-semibold fs-5">CD Payment (Cash Deposit)</h3>
+    </div>
+
+    <div class="section" *ngIf="showCustomerLink">
+      <div class="fields-container">
+        <div *ngFor="let field of config.customerLink" class="form-field"
+          [ngClass]="{ 'checkbox-field': field.type === 'checkbox' }">
+          <!-- Label for non-checkbox and non-select -->
+          <label *ngIf="field.type !== 'checkbox'" class="text-sm text-medium" [class.required]="field.required">
+            {{ field.label }}
+          </label>
+
+          <ng-container [ngSwitch]="field.type">
+
+  <!-- Select dropdown -->
+  <ng-select *ngSwitchCase="'select'" [items]="field.options ?? []" bindLabel="." bindValue="."
+    [formControlName]="field.key" [placeholder]="field.placeholder ?? ('Select ' + field.label)"
+    class="custom-width" [searchable]="false" [clearable]="false">
+  </ng-select>
+
+  <!-- Text or other inputs -->
+  <div *ngSwitchDefault class="input-icon-container">
+    <span class="rupee-icon">₹</span>
+    <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.label"
+      class="input-class" />
+  </div>
+</ng-container>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</form>

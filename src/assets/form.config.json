@@ -1,0 +1,596 @@
+{
+  "dynamicPaymentForm": {
+    "fields": [
+      {
+        "type": "breadcrumb",
+        "items": [
+          "Dashboard",
+          "Travel",
+          "Complete Transaction"
+        ]
+      },
+      {
+        "type": "title",
+        "text": "Travellers Suraksha"
+      },
+      {
+        "type": "select",
+        "name": "paymentMethod",
+        "label": "Select Payment Method",
+        "value": "cdPayment",
+        "options": [
+          {
+            "key": "cdPayment",
+            "value": "CD Payment (Cash Deposit)",
+            "icon": "../../assets/icons/cdIcon.svg"
+          },
+          {
+            "key": "sendLink",
+            "value": "Send Link to Customer",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "cash",
+            "value": "Cash",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "cheque",
+            "value": "Cheque",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "bankDebt",
+            "value": "Bank DEBT",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "existing",
+            "value": "Existing",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "bankGuarantee",
+            "value": "Bank Guarantee",
+            "icon": "../../assets/icons/link 1.svg"
+          },
+          {
+            "key": "insillionReceipt",
+            "value": "Insillion Receipt",
+            "icon": "../../assets/icons/link 1.svg"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "digitalCopy",
+        "label": "Receive a digital copy of your policy document via email only",
+        "value": false
+      },
+      {
+        "type": "checkbox",
+        "name": "terms",
+        "label": "I accept ",
+        "value": false,
+        "link": {
+          "text": "all terms and conditions",
+          "href": "#"
+        },
+        "validators": {
+          "requiredTrue": true
+        },
+        "errors": {
+          "requiredTrue": "You must accept the terms and conditions."
+        }
+      },
+      {
+        "type": "summary",
+        "label": "Total Premium",
+        "value": "₹ 12,54,200.70",
+        "breakupLink": {
+          "text": "View Breakup",
+          "href": "#"
+        }
+      },
+      {
+        "type": "button",
+        "name": "makePayment",
+        "label": "Make Payment"
+      },
+      {
+        "type": "button",
+        "name": "verifyPayment",
+        "label": "Verify Payment"
+      },
+      {
+        "type": "button",
+        "name": "generatePaymentLink",
+        "label": "Generate Payment Link"
+      }
+    ]
+  },
+  "paymentDetails": {
+    "fields": [
+      {
+        "label": "Payer Type",
+        "key": "payerType",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      }
+    ]
+  },
+  "customerLink": [
+    {
+      "label": "CD Number",
+      "key": "cdNumber",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Payable Amount",
+      "key": "payableAmount",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "CD Full Balance",
+      "key": "fullBalance",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Freezed CD Balance of Respective LOB",
+      "key": "freezedBalance",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "linkPaymentDetails": {
+    "fields": [
+      {
+        "label": "Deposit In",
+        "key": "depositIn",
+        "type": "select",
+        "options": [
+          "Savings",
+          "Checking"
+        ],
+        "required": true
+      },
+      {
+        "label": "Payer Type",
+        "key": "payerType",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true
+      },
+      {
+        "label": "House Bank",
+        "key": "houseBank",
+        "type": "select",
+        "options": [
+          "Bank A",
+          "Bank B",
+          "Bank C"
+        ],
+        "required": true
+      },
+      {
+        "label": "Account Number",
+        "key": "accountNumber",
+        "type": "text",
+        "required": true
+      }
+    ]
+  },
+  "customerSendLink": [
+    {
+      "label": "Email ID",
+      "key": "emailId",
+      "type": "email",
+      "required": true
+    },
+    {
+      "label": "Mobile Number",
+      "key": "mobileNumber",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "paymentStatus": {
+    "reason": "Payment Failed!",
+    "successReason": "Payment Successfull!",
+    "status": "success",
+    "failedMessage": "Alternatively, you can choose a different payment method.",
+    "successMessage": "Your payment has been received successfully",
+    "details": [
+      {
+        "label": "Product Name:",
+        "value": "Travellers Suraksha"
+      },
+      {
+        "label": "Payment Date:",
+        "value": "25/08/2025"
+      },
+      {
+        "label": "Proposal Number:",
+        "value": "PR/25/7200002322"
+      },
+      {
+        "label": "Total Premium:",
+        "value": "₹ 212"
+      },
+      {
+        "label": "Master Policy Number:",
+        "value": "MP-45876231"
+      },
+      {
+        "label": "Certificate Number:",
+        "value": "CERT-98234567"
+      }
+    ],
+    "icon": "../../assets/icons/errorIcon.svg",
+    "successIcon" : "../../assets/icons/successIcon.svg",
+    "buttons": {
+    "failed": [
+      { "label": "Repay", "action": "repay", "class": "btn btn-primary btn-md w-75 my-smd", "icon":"../assets/icons/cdIcon.svg" }
+    ],
+    "success": [
+      { "label": "Download", "action": "download", "class": "btn btn-primary btn-sm w-75", "icon":"../assets/icons/downloadIcon.svg" },
+      { "label": "Back To Policy", "action": "backToPolicy", "class": "btn btn-outline btn-sm", "icon":"../assets/icons/backToPolicyIcon.svg" },
+      { "label": "Share", "action": "share", "class": "btn btn-outline btn-sm", "icon":"../assets/icons/shareIcon.svg" }
+    ]
+  }
+  },
+"cashPayment": [
+    {
+      "label": "Receipt Type",
+      "key": "cdNumber",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Receipt Amount",
+      "key": "payableAmount",
+      "type": "text",
+      "required": true
+    },
+    
+    {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "CASH Received Date",
+      "key": "fullBalance",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "chequePayment": [
+    {
+      "label": "Receipt Type",
+      "key": "receiptType",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Receipt Amount",
+      "key": "payableAmount",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Cheque No",
+      "key": "chequeNumber",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Cheque Date",
+      "key": "chequeDate",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Cheque Received Date",
+      "key": "chequeReceivedDate",
+      "type": "text",
+      "required": true
+    },
+    {
+        "label": "Drawee Back",
+        "key": "draweeBack",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Drawee Back"
+      },
+      {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    }
+  ],
+"bankDebtPayment": [
+    {
+      "label": "Receipt Type",
+      "key": "receiptType",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Receipt Amount",
+      "key": "payableAmount",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Cheque No",
+      "key": "chequeNumber",
+      "type": "text",
+      "required": true
+    },
+    {
+        "label": "Drawee Back",
+        "key": "draweeBack",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Drawee Back"
+      },
+      
+    {
+      "label": "Cheque Date",
+      "key": "chequeDate",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Cheque Received Date",
+      "key": "chequeReceivedDate",
+      "type": "text",
+      "required": true
+    },
+      {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "existingPayment": [
+    {
+      "label": "Receipt Type",
+      "key": "receiptType",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Receipt No",
+      "key": "receiptNumber",
+      "type": "text",
+      "required": true
+    },
+      {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    },
+    
+    {
+      "label": "Existing Receipt Amount",
+      "key": "existingReceiptAmount",
+      "type": "text",
+      "required": true
+    },
+    
+    {
+      "label": "Utilized Amount",
+      "key": "utilizedAmount",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "bankGuaranteePayment": [
+    {
+      "label": "Receipt Type",
+      "key": "receiptType",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Receipt Amount",
+      "key": "receiptAmount",
+      "type": "text",
+      "required": true
+    },
+    {
+  "label": "Bank Guarantee Date",
+  "key": "bankGuaranteeDate",
+  "type": "datepicker",  
+  "placement": "top",
+  "required": true
+},
+    {
+        "label": "Drawee Back",
+        "key": "draweeBack",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Drawee Back"
+      },
+      {
+      "label": "Bank Guarantee Reference No",
+      "key": "bankGuaranteeReferenceNo",
+      "type": "text",
+      "required": true
+    },
+      {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "insillionReceiptPayment": [
+    {
+      "label": "Receipt Type",
+      "key": "receiptType",
+      "type": "select",
+      "options": [
+        "Customer",
+        "Intermediary"
+      ],
+      "required": true
+    },
+    {
+      "label": "Existing Quote No",
+      "key": "bankGuaranteeDate",
+      "type": "text",
+      "required": true
+    },
+    {
+        "label": "Receipt List",
+        "key": "receiptList",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select receipt List"
+      },
+      {
+        "label": "Payer Type",
+        "key": "cdNumber",
+        "type": "select",
+        "options": [
+          "Individual",
+          "Business"
+        ],
+        "required": true,
+        "placeholder": "Select Payer Type"
+      },
+    {
+      "label": "Account Code",
+      "key": "accoutnCode",
+      "type": "text",
+      "required": true
+    },
+    
+    {
+      "label": "Receipt Amount",
+      "key": "receiptAmount",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Utilized Amount",
+      "key": "utilizedAmount",
+      "type": "text",
+      "required": true
+    }
+  ]
+
+}

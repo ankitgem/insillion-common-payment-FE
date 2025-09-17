@@ -1,0 +1,95 @@
+.payment-status-card {
+ display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 24px;
+padding-bottom: 24px;
+width: 600px;
+align-self: stretch;
+border-radius: 16px;
+background: #FFF;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+.card-header {
+ display: flex;
+padding: 24px;
+justify-content: space-between;
+align-items: flex-start;
+align-self: stretch;
+border-radius: 16px 16px 0 0;
+background: var(--Blue-Tertiary, #F1F5FD);
+color: var(--Black-Primary, #161A23);
+line-height: normal;
+}
+.status-icon {
+ margin: 26px 0 12px 0;
+}
+.icon-fail {
+ width: 72px;
+height: 72px;
+flex-shrink: 0;
+}
+.failure-message {
+ color: var(--Black-Secondary, #676767);
+text-align: center;
+font-family: Mulish;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.status-details {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.status-details .row {
+ display: flex;
+width: 300px;
+justify-content: space-between;
+}
+.repay-btn {
+  display: flex;
+  width: 436px;
+  height: 56px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Blue-Primary, #1362DF);
+  color: var(--Color, #FFF);
+  text-align: center;
+  font-family: Mulish;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.16px;
+  border: none; /* Removes the default border */
+  outline: none; /* Removes focus outline if desired */
+}
+
+.repay-btn:hover {
+ background: #0850b6;
+}
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-outline {
+  background-color: transparent;
+  color: var(--blue-500);
+  border-color: var(--blue-500);
+}
+.btn-outline:hover {
+  background-color: var(--blue-100);
+}
+.btn-outline:active {
+  background-color: transparent; /* Keeps original style on click */
+  color: var(--blue-500);
+  border-color: var(--blue-500);
+}
