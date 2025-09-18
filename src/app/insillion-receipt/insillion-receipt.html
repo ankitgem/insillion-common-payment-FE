@@ -28,7 +28,7 @@
 
   <!-- Text or other inputs -->
   <div *ngSwitchDefault class="input-icon-container">
-    <span class="rupee-icon">₹</span>
+    <span *ngIf="field.showRupeeIcon" class="rupee-icon">₹</span>
     <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.label"
       class="input-class" />
   </div>

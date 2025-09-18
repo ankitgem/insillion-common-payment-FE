@@ -54,6 +54,17 @@ export class SendLinkToCustomer implements OnInit {
     customerLink: this.customerLink
   };
 }
+markAllAsTouched() {
+    this.form.markAllAsTouched();
+  }
+
+  isValid(): boolean {
+    return this.form.valid;
+  }
+
+  getValue() {
+    return this.form.value;
+  }
 
   onSubmit() {
     if (this.form.valid) {

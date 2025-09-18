@@ -1,6 +1,5 @@
 .payment-main {
   height: auto;
-  width: 1100px;
   margin: 30px auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #3c3c3c;
@@ -72,7 +71,6 @@ align-self: stretch;
 
 .option {
   display: flex;
-width: 320px;
 height: 75px;
 padding: 16px 20px;
 align-items: center;
@@ -177,37 +175,19 @@ margin-top: 70px;
   bottom: 0;
   left: 52%;
   transform: translateX(-50%);
-  width: 94%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   background: #FFF;
   box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.08);
   z-index: 1000; /* Ensure it displays above other content */
-  padding: 8px 24px;
-}
-
-.pay-btn {
-  background-color: #2c7be5;
-  color: white;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-.pay-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 .summary {
   display: flex;
 padding: 8px 10px;
 align-items: center;
 gap: 16px;
+height: 90px;
 align-self: stretch;
 background: var(--Blue-Secondary, #E2ECFB);
 }
@@ -250,14 +230,5 @@ text-underline-position: from-font;
 padding: 4px 24px;
 align-items: center;
 gap: 16px;
-align-self: stretch;
-}
-.payment-button{
-  display: flex;
-width: 635.5px;
-padding: 16px 32px;
-align-items: center;
-gap: 24px;
-flex-shrink: 0;
 align-self: stretch;
 }

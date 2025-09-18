@@ -10,6 +10,7 @@ interface Field {
   options?: string[];
   required: boolean;
   placeholder?: string;
+  showRupeeIcon?: boolean;
 }
 @Component({
   selector: 'app-cheque-payment',

@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes,withHashLocation()),
     provideClientHydration(withEventReplay()),
-    provideNoopAnimations(),
+    provideAnimations(),
     importProvidersFrom(BsDatepickerModule.forRoot()) // Import bsDatepicker global providers here
   ]
 };

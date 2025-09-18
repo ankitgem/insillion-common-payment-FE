@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators,FormsModule } f
 import formConfig from '../../assets/form.config.json';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CommonModule } from '@angular/common';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 interface Field {
   label: string;
@@ -11,11 +12,12 @@ interface Field {
   options?: string[];
   required: boolean;
   placeholder?: string;
+  showRupeeIcon?: boolean;
 }
 
 @Component({
   selector: 'app-bank-debt',
-  imports: [CommonModule, ReactiveFormsModule, NgSelectModule,FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgSelectModule,FormsModule,BsDatepickerModule],
   templateUrl: './bank-debt.html',
   styleUrl: './bank-debt.css'
 })

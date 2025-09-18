@@ -11,6 +11,7 @@ interface Field {
   options?: string[];
   required: boolean;
   placeholder?: string;
+  showRupeeIcon?: boolean;
 }
 
 @Component({

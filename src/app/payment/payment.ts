@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CdPayment } from '../cd-payment/cd-payment';
 import { SendLinkToCustomer } from '../send-link-to-customer/send-link-to-customer';
 import { PaymentStatusPage } from '../payment-status-page/payment-status-page';
@@ -14,6 +14,7 @@ import { Existing } from '../existing/existing';
 import { BankGuarantee } from '../bank-guarantee/bank-guarantee';
 import { InsillionReceipt } from '../insillion-receipt/insillion-receipt';
 import { ApiService } from '../services/api.service';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 interface FormField {
@@ -34,7 +35,7 @@ interface FormField {
   selector: 'app-dynamic-form',
   standalone: true,
   templateUrl: './payment.html',
-  imports: [CommonModule, ReactiveFormsModule, CdPayment, SendLinkToCustomer, PaymentStatusPage,ToastrModule,CashPayment,ChequePayment,BankDebt,Existing,BankGuarantee,InsillionReceipt],
+  imports: [CommonModule, ReactiveFormsModule, CdPayment, SendLinkToCustomer, PaymentStatusPage,ToastrModule,CashPayment,ChequePayment,BankDebt,Existing,BankGuarantee,InsillionReceipt,BsDatepickerModule],
   styleUrls: ['./payment.css'],
 })
 export class DynamicFormComponent implements OnInit {
@@ -56,7 +57,8 @@ export class DynamicFormComponent implements OnInit {
   { type: 'button', name: 'verifyPayment', label: 'Verify Payment' , showForPayment: ['sendLink'] },
   { type: 'button', name: 'generatePaymentLink', label: 'Generate Payment Link' , showForPayment: ['sendLink'] }
 ];
-
+@ViewChild(CdPayment) cdPaymentComponent?: CdPayment;
+  @ViewChild(SendLinkToCustomer) sendLinkComponent?: SendLinkToCustomer;
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
@@ -138,21 +140,51 @@ export class DynamicFormComponent implements OnInit {
   }
 }
 
-  makePayment(): void {
-    if (this.form.valid) {
-      console.log('Selected Payment:', this.selectedPayment);
-      console.log('Form values:', this.form.value);
+  // makePayment(): void {
+  //   if (this.form.valid) {
+  //     console.log('Selected Payment:', this.selectedPayment);
+  //     console.log('Form values:', this.form.value);
 
-      // Show Payment Status and hide form UI
+  //     // Show Payment Status and hide form UI
+  //     this.showPaymentStatus = true;
+
+  //     // Trigger change detection to update UI immediately
+  //     this.cd.detectChanges();
+
+  //   } else {
+  //     this.form.markAllAsTouched();
+  //   }
+  // }
+  makePayment() {
+    this.form.markAllAsTouched();
+    let valid = this.form.valid;
+
+    if (this.selectedPayment === 'cdPayment' && this.cdPaymentComponent) {
+      this.cdPaymentComponent.markAllAsTouched();
+      valid = valid && this.cdPaymentComponent.isValid();
+    } else if (this.selectedPayment === 'sendLink' && this.sendLinkComponent) {
+      this.sendLinkComponent.markAllAsTouched();
+      valid = valid && this.sendLinkComponent.isValid();
+    }
+    // handle other payments similarly...
+
+    if (valid) {
+      const parentData = this.form.value;
+      let paymentData = {};
+      if (this.selectedPayment === 'cdPayment' && this.cdPaymentComponent)
+        paymentData = this.cdPaymentComponent.getValue();
+      else if (this.selectedPayment === 'sendLink' && this.sendLinkComponent)
+        paymentData = this.sendLinkComponent.getValue();
+      // other payment data...
+
+      const fullData = { ...parentData, ...paymentData };
+      console.log('Collected Payment Data:', fullData);
+
       this.showPaymentStatus = true;
-
-      // Trigger change detection to update UI immediately
       this.cd.detectChanges();
-
-    } else {
-      this.form.markAllAsTouched();
     }
   }
+
   verifyPayment(): void {
     if (this.form.valid) {
       console.log('Selected Payment:', this.selectedPayment);

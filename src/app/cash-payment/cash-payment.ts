@@ -12,6 +12,7 @@ interface Field {
   options?: string[];
   required: boolean;
   placeholder?: string;
+  showRupeeIcon?: boolean;
 }
 @Component({
   selector: 'app-cash-payment',

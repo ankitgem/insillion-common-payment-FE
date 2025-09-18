@@ -57,6 +57,18 @@ export class CdPayment implements OnInit {
   };
 }
 
+  markAllAsTouched() {
+    this.form.markAllAsTouched();
+  }
+
+  isValid(): boolean {
+    return this.form.valid;
+  }
+
+  getValue() {
+    return this.form.value;
+  }
+
 
   onSubmit(): void {
     if (this.form.valid) {
